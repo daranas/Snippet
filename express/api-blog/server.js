@@ -1,11 +1,9 @@
 var express     = require('express'),
     connection  = require('./config/database'),
+    port        = 3000,
     app         = express();
 
-app.get('/', function(req, res) {
-    connection.query('SELECT * from articles', function(err, rows, fields) {
-        res.end(JSON.stringify(rows));
-    });
-});
+require('./app/routes')(app);
 
-app.listen(3000);
+app.listen(port);
+console.log('The magic happens on port ' + port);
