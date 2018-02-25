@@ -1,8 +1,11 @@
-var express = require('express'),
-    app     = express();
-    
-    app.get('/', function(req, res) {
-        res.send("Hello World");
-    });
+var express     = require('express'),
+    connection  = require('./config/database'),
+    app         = express();
 
-    app.listen(3000);
+app.get('/', function(req, res) {
+    connection.query('SELECT * from articles', function(err, rows, fields) {
+        res.end(JSON.stringify(rows));
+    });
+});
+
+app.listen(3000);
