@@ -1,10 +1,15 @@
-var connection = require('./../config/database');
+// controllers
+var articles = require('./controllers/articles');
+
+// routes
 module.exports = function(app) {
 
-    app.get('/', function(req, res) {
-        connection.query('SELECT * from articles', function(err, rows, fields) {
-            res.end(JSON.stringify(rows));
-        });
+    app.get('/', function(req, res){
+        res.send("Hello World!");
     });
+    
+    // article
+    app.get('/list', articles.list);
+    app.post('/submit', articles.submit);
 
 }
