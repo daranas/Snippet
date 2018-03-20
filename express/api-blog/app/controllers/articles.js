@@ -15,10 +15,10 @@ exports.list = function(req, res, next) {
             updated_at  : rows[i].articleUpdate
           });
         };
-        res.end(JSON.stringify({
+        res.json({
           status: 200,
           data: arr
-        }));
+        });
       }
     });
   });
