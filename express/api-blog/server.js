@@ -8,7 +8,7 @@ var express         = require('express'),
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: true
+  extended: true
 }));
 app.use(setConnection(mysql, config.database, 'single'));
 
