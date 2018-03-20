@@ -8,6 +8,7 @@ exports.list = function(req, res, next) {
         var arr = [];
         for (let i = 0; i < rows.length; i++) {
           arr.push({
+            id          : rows[i].articleID,
             title       : rows[i].articleTitle,
             category    : rows[i].catName,
             description : rows[i].articleDesc.substring(0,78),
