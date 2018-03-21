@@ -4,6 +4,8 @@ var express = require('express'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
     env = require('dotenv').load(),
+    models = require('./app/models'),
+    authRoute = require('./app/routes/auth')(app),
     exphbs = require('express-handlebars');
 
 // body parser
@@ -14,6 +16,13 @@ app.use(bodyParser.json());
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// handlebars
+app.set('views', './app/views');
+app.engine('hbs', exphbs({
+  extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 app.get('/', function(req, res) {
   res.send("Hello World");
