@@ -3,7 +3,8 @@ var express = require('express'),
     passport = require('passport'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
-    env = require('dotenv').load();
+    env = require('dotenv').load(),
+    exphbs = require('express-handlebars');
 
 // body parser
 app.use(bodyParser.urlencoded({ extended:true }));
