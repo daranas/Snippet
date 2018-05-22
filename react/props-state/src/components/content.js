@@ -5,10 +5,12 @@ export default class Content extends React.Component {
     return (
       <div>
         <div>
-          <label>Header</label> <input value={ this.props.dataState.header } onChange={ this.props.changeHeader }/>
+          <label>Header</label>
+          <input value={ this.props.dataState.header } onChange={ this.props.changeHeader } />
         </div>
         <div>
-          <label>Footer</label> <input value={ this.props.dataState.footer } onChange={ this.props.changeFooter }/>
+          <label>Footer</label>
+          <input value={ this.props.dataState.footer } onChange={ this.props.changeFooter } />
         </div>
       </div>
     )
